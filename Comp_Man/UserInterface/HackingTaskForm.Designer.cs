@@ -38,6 +38,9 @@
             this.networkVirusButton = new System.Windows.Forms.Button();
             this.networkAntivirusButton = new System.Windows.Forms.Button();
             this.rejectTaskButton = new System.Windows.Forms.Button();
+            this.money1Button = new System.Windows.Forms.Button();
+            this.money2Button = new System.Windows.Forms.Button();
+            this.money3Button = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // hackingTaskTextBox
@@ -146,11 +149,41 @@
             this.rejectTaskButton.UseVisualStyleBackColor = true;
             this.rejectTaskButton.Click += new System.EventHandler(this.rejectTaskButton_Click);
             // 
+            // money1Button
+            // 
+            this.money1Button.Enabled = false;
+            this.money1Button.Location = new System.Drawing.Point(383, 144);
+            this.money1Button.Name = "money1Button";
+            this.money1Button.Size = new System.Drawing.Size(67, 32);
+            this.money1Button.TabIndex = 10;
+            this.money1Button.UseVisualStyleBackColor = true;
+            // 
+            // money2Button
+            // 
+            this.money2Button.Enabled = false;
+            this.money2Button.Location = new System.Drawing.Point(456, 144);
+            this.money2Button.Name = "money2Button";
+            this.money2Button.Size = new System.Drawing.Size(67, 32);
+            this.money2Button.TabIndex = 11;
+            this.money2Button.UseVisualStyleBackColor = true;
+            // 
+            // money3Button
+            // 
+            this.money3Button.Enabled = false;
+            this.money3Button.Location = new System.Drawing.Point(529, 144);
+            this.money3Button.Name = "money3Button";
+            this.money3Button.Size = new System.Drawing.Size(67, 32);
+            this.money3Button.TabIndex = 12;
+            this.money3Button.UseVisualStyleBackColor = true;
+            // 
             // HackingTaskForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(614, 363);
+            this.Controls.Add(this.money3Button);
+            this.Controls.Add(this.money2Button);
+            this.Controls.Add(this.money1Button);
             this.Controls.Add(this.rejectTaskButton);
             this.Controls.Add(this.networkAntivirusButton);
             this.Controls.Add(this.networkVirusButton);
@@ -180,5 +213,8 @@
         private System.Windows.Forms.Button networkVirusButton;
         private System.Windows.Forms.Button networkAntivirusButton;
         private System.Windows.Forms.Button rejectTaskButton;
+        private System.Windows.Forms.Button money1Button;
+        private System.Windows.Forms.Button money2Button;
+        private System.Windows.Forms.Button money3Button;
     }
 }

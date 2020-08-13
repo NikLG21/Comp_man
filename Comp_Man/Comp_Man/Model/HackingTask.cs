@@ -33,6 +33,7 @@ namespace Common.Model
             this.moneyEarned = moneyEarned;
             this.description = description;
             
+            
         }
 
         public HackingPrograms FirstProgram

@@ -16,6 +16,7 @@ namespace Common.Model
         private bool _networkAntivirus;
         private int _successfulHack;
         private List<HackingTask> hackingTasks;
+        private HackingPrograms lastProgramsUsed;
 
         public Hacking()
         {
@@ -29,6 +30,7 @@ namespace Common.Model
             _networkAntivirus = false;
             _networkVirus = false;
             _successfulHack = 0;
+            lastProgramsUsed = HackingPrograms.Null;
             hackingTasks = new List<HackingTask>();
             hackingTasks.Add(new HackingTask(HackingPrograms.SystemAccessCrack, HackingPrograms.Null, 2, new []{20},
                 "It's your first task. Get access to this computer"));
@@ -109,6 +111,11 @@ namespace Common.Model
         {
             get => hackingTasks;
             set => hackingTasks = value;
+        }
+        public HackingPrograms LastProgramsUsed
+        {
+            get => lastProgramsUsed;
+            set => lastProgramsUsed = value;
         }
     }
 }

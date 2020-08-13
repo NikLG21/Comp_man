@@ -227,7 +227,9 @@ namespace Business.Services
                     if (game.Hacking.HackingTasks[task].ZeroProgram == hackingProgramUsed)
                     {
                         game.Hacking.HackingTasks[task].ZeroProgramUsed = true;
+                        
                     }
+                    
                     break;
                 case 1:
                     if (game.Hacking.HackingTasks[task].FirstProgram == hackingProgramUsed)
@@ -248,6 +250,8 @@ namespace Business.Services
                     }
                     break;
             }
+
+            game.Hacking.LastProgramsUsed = hackingProgramUsed;
         }
     }
 }

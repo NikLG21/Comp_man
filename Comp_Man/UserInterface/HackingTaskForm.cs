@@ -49,6 +49,7 @@ namespace UserInterface
                     if (_game.Hacking.HackingTasks[task].FirstProgramUsed)
                     {
                         part++;
+                        MoneyButtonsCheck();
                     }
                     else
                     {
@@ -72,14 +73,14 @@ namespace UserInterface
 
         private void DataUpdate()
         {
-            string[] lines = new string[3] ;
+            string[] lines = new string[5] ;
             switch (part)
             {
                 case -2:
 
                     break;
                 case -1:
-
+                    
                     break;
                 case 0:
 
@@ -126,6 +127,19 @@ namespace UserInterface
             }
         }
 
+        private void MoneyButtonsCheck()
+        {
+            if (_game.Hacking.HackingTasks[task].MoneyEarned.Length == 3)
+            {
+                money1Button.Enabled = true;
+                money2Button.Enabled = true;
+                money3Button.Enabled = true;
+                money1Button.Text = _game.Hacking.HackingTasks[task].MoneyEarned[0].ToString();
+                money2Button.Text = _game.Hacking.HackingTasks[task].MoneyEarned[1].ToString();
+                money3Button.Text = _game.Hacking.HackingTasks[task].MoneyEarned[2].ToString();
+
+            }
+        }
 
         private void takeTaskButton_Click(object sender, EventArgs e)
         {
