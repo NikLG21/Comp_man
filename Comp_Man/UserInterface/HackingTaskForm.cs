@@ -19,6 +19,7 @@ namespace UserInterface
         private IHackingService _hackingService;
         private int task;
         private int part;
+        private List<string> dataList;
         public HackingTaskForm(GameMenu game, IHackingService hackingService)
         {
             InitializeComponent();
@@ -29,6 +30,7 @@ namespace UserInterface
             _hackingService = hackingService;
             task = _hackingService.HackingTasksPick(_game);
             part = -1;
+            dataList = new List<string>();
             DataUpdate();
         }
         private void ThisPartCheck()
@@ -59,7 +61,7 @@ namespace UserInterface
                 case 2:
                     if (_game.Hacking.HackingTasks[task].SecondProgramUsed)
                     {
-                        DataUpdate();
+                        //
                     }
                     else
                     {
@@ -68,31 +70,36 @@ namespace UserInterface
                     break;
             }
             DataUpdate();
-
         }
 
         private void DataUpdate()
         {
-            string[] lines = new string[5] ;
+            
             switch (part)
             {
                 case -2:
-
+                    dataList.Add((_game.HackingTaskDictionary.AfterTaskWrongDictionary[_game.Hacking.LastProgramsUsed]));
                     break;
                 case -1:
-                    
+                    dataList.Add(_game.Hacking.HackingTasks[task].Description);
                     break;
                 case 0:
-
+                    dataList.Add((_game.HackingTaskDictionary.BeforePartDictionary[_game.Hacking.HackingTasks[task].ZeroProgram]));
                     break;
                 case 1:
-
+                    dataList.Add((_game.HackingTaskDictionary.AfterTaskTrueDictionary[_game.Hacking.LastProgramsUsed]));
+                    dataList.Add((_game.HackingTaskDictionary.BeforePartDictionary[_game.Hacking.HackingTasks[task].FirstProgram]));
                     break;
                 case 2:
-
+                    dataList.Add((_game.HackingTaskDictionary.AfterTaskTrueDictionary[_game.Hacking.LastProgramsUsed]));
+                    dataList.Add((_game.HackingTaskDictionary.BeforePartDictionary[_game.Hacking.HackingTasks[task].SeconProgram]));
                     break;
-
+                case 3:
+                    dataList.Add((_game.HackingTaskDictionary.AfterTaskWrongDictionary[HackingPrograms.Null]));
+                    break;
             }
+
+            hackingTaskTextBox.Lines = dataList.ToArray();
         }
 
         private void CheckPrograms()
@@ -145,12 +152,15 @@ namespace UserInterface
         {
             CheckPrograms();
             part = 0;
+            DataUpdate();
         }
 
         private void rejectTaskButton_Click(object sender, EventArgs e)
         {
             task = _hackingService.HackingTasksPick(_game);
             part = -1;
+            dataList.Clear();
+            DataUpdate();
         }
         
         private void passwordCrackButton_Click(object sender, EventArgs e)
@@ -195,6 +205,58 @@ namespace UserInterface
             ThisPartCheck();
         }
 
+        private void money1Button_Click(object sender, EventArgs e)
+        {
+            _hackingService.HackingDoing(_game, task, part, HackingPrograms.Null, 0);
+            ThisPartCheck();
+        }
 
+        private void money2Button_Click(object sender, EventArgs e)
+        {
+            Random rand = new Random();
+            int i = rand.Next(0, 10);
+            if (i > 4 && part == 2)
+            {
+                _hackingService.HackingDoing(_game, task, part, HackingPrograms.Null, 1);
+            }
+            else
+            {
+                if (part == 3 && i > 4)
+                {
+                    _hackingService.HackingDoing(_game, task, part - 1, HackingPrograms.Null, 1);
+                }
+                else
+                {
+                    part = -2;
+                }
+
+
+            }
+            DataUpdate();
+        }
+
+        private void money3Button_Click(object sender, EventArgs e)
+        {
+            Random rand = new Random();
+            int i = rand.Next(0, 10);
+            if (i>7 && part ==2)
+            {
+                _hackingService.HackingDoing(_game, task, part, HackingPrograms.Null, 2);
+            }
+            else
+            {
+                if (part == 3 && i >7)
+                {
+                    _hackingService.HackingDoing(_game, task, part-1, HackingPrograms.Null, 2);
+                }
+                else
+                {
+                    part = -2;
+                }
+               
+                
+            }
+            DataUpdate();
+        }
     }
 }

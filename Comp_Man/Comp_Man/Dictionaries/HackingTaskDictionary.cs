@@ -50,5 +50,23 @@ namespace Common.Dictionaries
             afterTaskWrongDictionary.Add(HackingPrograms.NetwokAntivirus, "The antivirus did not work and the operation stopped.");
             afterTaskWrongDictionary.Add(HackingPrograms.Null, "Is it too much at a time?Is it too much at a time?");
         }
+
+        public Dictionary<HackingPrograms, string> BeforePartDictionary
+        {
+            get => beforePartDictionary;
+            set => beforePartDictionary = value;
+        }
+
+        public Dictionary<HackingPrograms, string> AfterTaskTrueDictionary
+        {
+            get => afterTaskTrueDictionary;
+            set => afterTaskTrueDictionary = value;
+        }
+
+        public Dictionary<HackingPrograms, string> AfterTaskWrongDictionary
+        {
+            get => afterTaskWrongDictionary;
+            set => afterTaskWrongDictionary = value;
+        }
     }
 }

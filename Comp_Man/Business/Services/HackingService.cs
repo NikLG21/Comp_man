@@ -212,7 +212,6 @@ namespace Business.Services
                 k = game.Hacking.HackingTasks.IndexOf(task);
             }
 
-            k = 3;
             game.Hacking.HackingTasks[k].FirstProgramUsed = false;
             game.Hacking.HackingTasks[k].SecondProgramUsed = false;
             game.Hacking.HackingTasks[k].ZeroProgramUsed = false;

@@ -157,6 +157,7 @@
             this.money1Button.Size = new System.Drawing.Size(67, 32);
             this.money1Button.TabIndex = 10;
             this.money1Button.UseVisualStyleBackColor = true;
+            this.money1Button.Click += new System.EventHandler(this.money1Button_Click);
             // 
             // money2Button
             // 
@@ -166,6 +167,7 @@
             this.money2Button.Size = new System.Drawing.Size(67, 32);
             this.money2Button.TabIndex = 11;
             this.money2Button.UseVisualStyleBackColor = true;
+            this.money2Button.Click += new System.EventHandler(this.money2Button_Click);
             // 
             // money3Button
             // 
@@ -175,6 +177,7 @@
             this.money3Button.Size = new System.Drawing.Size(67, 32);
             this.money3Button.TabIndex = 12;
             this.money3Button.UseVisualStyleBackColor = true;
+            this.money3Button.Click += new System.EventHandler(this.money3Button_Click);
             // 
             // HackingTaskForm
             // 
